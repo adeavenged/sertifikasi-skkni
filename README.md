@@ -2,16 +2,23 @@
 Soal 2 Assesor Sertifikasi SKKNI
 
 - config 
-| database.php (configurasi database)
+  pada folder config ini berisi file-file yang dibutuhkan untuk mengkonfigurasi program web
+  - database.php (configurasi database)
 
 - css 
-| style.css (design of page)
+  pada folder css terdapat file source css (cascading style side) program (desain web)
+  - style.css (design of page)
 
 - modules
-| peserta
-|- peserta.php
-|- act_peserta.php
+  beberapa folder yang terdapat dalam module menempatkan berberapa fungsi-fungsi dari web
+  - peserta
+	folder peserta berisi source fungsi-fungsi dari management data peserta
+	- peserta.php
+	- act_peserta.php
 
 - content.php
+  file content ini berisi source fungsi untuk menampilkan modules
 - med.php
+  merupakan souce utama dari program
 - index.php
+  direct halaman ketika pertama kali alamat web di akses.
