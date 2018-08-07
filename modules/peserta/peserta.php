@@ -1,5 +1,5 @@
-<?php 
-	
+<?php
+
 	$action = "modules/peserta/act_peserta.php";
 	$act = @$_GET['act'];
 
@@ -20,19 +20,46 @@
 					<tr>
 						<td>TGL. LAHIR</td>
 						<td>:</td>
-						<td><input type='text' name='nama' placeholder='99/99/1999'></td>
+						<td><input type='text' name='tgl_lahir' id='datepicker' placeholder='99/99/1999'></td>
 					</tr>
 					<tr>
-						<td>TGL. LAHIR</td>
+						<td>Email</td>
 						<td>:</td>
-						<td><input type='text' name='nama' placeholder='99/99/1999'></td>
+						<td><input type='text' name='email' placeholder=''></td>
 					</tr>
+					<tr>
+						<td>HP</td>
+						<td>:</td>
+						<td><input type='text' name='hp' placeholder=''></td>
+					</tr>
+					<tr>
+						<td>Organisasi</td>
+						<td>:</td>
+						<td><input type='text' name='org' placeholder=''></td>
+					</tr>
+					<tr>
+					<td>Skema Sertifikasi</td>
+					<td>:</td>
+					<td><select name='skema'>
+					";
+						$a=mysql_fetch_array(mysql_query("Select * from tb_skema"));
+						foreach ($a as $value) {
+						echo "<option value='".$value['id_skema']."'>'".$value[nama_skema]."'</<option>";
+						}
+
+						echo"
+					</select>
+					</td>
+					</tr>
+					<tr><td colspan=2><input type=submit value=Simpan>
+													<input type=button value=Batal onclick=self.history.back()></td></tr>
+
 				</table>
 			</form>";
 
 
 			break;
-		
+
 		default:
 			echo"<table class='table'>
 				<tr>
