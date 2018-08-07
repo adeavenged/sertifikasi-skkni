@@ -38,13 +38,29 @@
 						<td><input type='text' name='org' placeholder=''></td>
 					</tr>
 					<tr>
+					<td>Lokasi</td>
+					<td>:</td>
+					<td><select name='lokasi'>
+					";
+					$query=mysql_query("Select * from tb_lokasi");
+					while(	$a=mysql_fetch_assoc($query)) {
+
+						echo "<option value=$a[id_lok]>$a[tuk]</<option>";
+						}
+
+						echo"
+					</select>
+					</td>
+					</tr>
+					<tr>
 					<td>Skema Sertifikasi</td>
 					<td>:</td>
 					<td><select name='skema'>
 					";
-						$a=mysql_fetch_array(mysql_query("Select * from tb_skema"));
-						foreach ($a as $value) {
-						echo "<option value='".$value['id_skema']."'>'".$value[nama_skema]."'</<option>";
+					$query2=mysql_query("Select * from tb_skema");
+						while($b=mysql_fetch_assoc($query2)) {
+
+						echo "<option value=$b[id_skema]>$b[nama_skema]</<option>";
 						}
 
 						echo"
