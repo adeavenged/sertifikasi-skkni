@@ -4,6 +4,7 @@
 	<title>Sertifikasi SKKNI</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather|PT+Sans|Source+Sans+Pro" rel="stylesheet"> 
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"
 			  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
@@ -16,6 +17,10 @@
 	<div id="wrapper">
 		<div id="container">
 			<h1>SERTIFIKAT SKKNI</h1>
+			<p>
+				<a href="med.php?mod=peserta&act=form">ADD PESERTA</a> | 
+				<a href="med.php?mod=peserta">VIEW PESERTA</a>
+			</p>
 			<?php 
 				include"content.php"; 
 			?>

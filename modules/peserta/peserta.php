@@ -1,10 +1,36 @@
 <?php 
 	
-	$act = "modules/peserta/act_peserta.php";
+	$action = "modules/peserta/act_peserta.php";
+	$act = @$_GET['act'];
 
 	switch ($act) {
-		case 'value':
-			# code...
+		case 'form':
+			echo"<form action='".$action."' class='form' method='post'>
+				<table width='100%'>
+					<tr>
+						<td width='120px'>NIK</td>
+						<td width='10px'>:</td>
+						<td><input type='text' name='nik' placeholder='nik...'></td>
+					</tr>
+					<tr>
+						<td>NAMA</td>
+						<td>:</td>
+						<td><input type='text' name='nama' placeholder='nama...'></td>
+					</tr>
+					<tr>
+						<td>TGL. LAHIR</td>
+						<td>:</td>
+						<td><input type='text' name='nama' placeholder='99/99/1999'></td>
+					</tr>
+					<tr>
+						<td>TGL. LAHIR</td>
+						<td>:</td>
+						<td><input type='text' name='nama' placeholder='99/99/1999'></td>
+					</tr>
+				</table>
+			</form>";
+
+
 			break;
 		
 		default:
@@ -30,6 +56,12 @@
 						echo"<tr>
 							<td>".$no."</td>
 							<td>".$data['nik']."</td>
+							<td>".$data['nama']."</td>
+							<td>".$data['tgl_lahir']."</td>
+							<td>".$data['hp']."</td>
+							<td>".$data['email']."</td>
+							<td>".$data['organisasi']."</td>
+							<td>".$data['rekomendasi']."</td>
 						</tr>";
 
 						$no++;
