@@ -15,7 +15,7 @@ body {
 }
 
 #container {
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid #000;
@@ -25,6 +25,7 @@ body {
 .table {
 	margin: 0;
 	padding:0;
+	font-size: 12.5px;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -37,6 +38,8 @@ body {
 	}
 
 
-.form input[type=text] {
+.form input[type=text], 
+.form input[type=email] {
 	width: 100%;
+	
 }
