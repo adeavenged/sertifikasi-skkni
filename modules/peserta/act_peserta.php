@@ -34,5 +34,30 @@
 			alert('Berhasil melakukan input data peserta...');
 			window.location=('../../index.php')
 		</script>";
+	} elseif ($mod == 'peserta' AND $act == 'edit') {
+		mysql_query("UPDATE tb_peserta SET nik = '".$_POST['nik']."', 
+											id_skema = '".$_POST['skema']."', 
+											id_lokasi = '".$_POST['lokasi']."', 
+											nama = '".$_POST['nama']."', 
+											tgl_lahir = '".$_POST['tgl_lahir']."', 
+											hp = '".$_POST['hp']."', 
+											email = '".$_POST['email']."', 
+											organisasi = '".$_POST['organisasi']."', 
+											rekomendasi = '".$_POST['rekomendasi']."', 
+											tgl_terbit = '".$_POST['tgl_terbit']."' 
+					WHERE id = '".$_POST['id']."'") or die(mysql_error());
+
+		echo"<script>
+			alert('Berhasil melakukan edit data peserta...');
+			window.location=('../../index.php')
+		</script>";
+
+	} elseif ($mod == 'peserta' AND $act == 'hapus') {
+		mysql_query("DELETE FROM tb_peserta WHERE id = '".$_GET['id']."'") or die(mysql_error());
+
+		echo"<script>
+			alert('Berhasil melakukan hapus data peserta...');
+			window.location=('../../index.php')
+		</script>";
 	}
 ?>
