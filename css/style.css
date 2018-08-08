@@ -9,6 +9,16 @@ body {
 	padding: 0;
 }
 
+a.link {
+	text-decoration:none;
+	color: #FF4136;
+}
+
+a.link:hover {
+	color: #3D9970;
+	text-decoration:underline;	
+}
+
 h1 {
 	color: #000;
 }

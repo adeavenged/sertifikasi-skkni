@@ -4,6 +4,28 @@
 	$act = @$_GET['act'];
 
 	switch ($act) {
+		case 'view':
+			if (isset($_GET['idlokasi'])) {
+				$query = mysql_query("SELECT * FROM tb_peserta WHERE id_lokasi = '$_GET[idlokasi]'") or die(mysql_error());
+				$jumlah = mysql_num_rows($query);
+
+				echo "<h1>Jumlah Peserta : ".$jumlah." Orang</h1>";
+
+				echo"<ul>";
+					while ($b = mysql_fetch_assoc($query)) {
+						echo"<li>".$b['nama']."</li>";
+					}
+					
+				echo"</ul>";
+
+
+			} else {
+				echo"<script>
+					alert('Data peserta tidak ditemukan...');
+					window.location=('index.php')
+				</script>";
+			}
+			break;
 		case 'form':
 			if (isset($_GET['id'])) {
 				$query = mysql_query("SELECT * FROM tb_peserta WHERE id = '$_GET[id]'") or die(mysql_error());
@@ -145,7 +167,7 @@
 							<td>".$no."</td>
 							<td><b>".$data['nik']."</b></td>
 							<td>".$data['nama']."<br>
-								<small>".$data['nama_skema']." - ".$data['tuk']."</small></td>
+								<small>".$data['nama_skema']." - <a href='med.php?mod=peserta&act=view&idlokasi=".$data['id_lokasi']."' class='link'>".$data['tuk']."</a></small></td>
 							<td>".$data['tgl_lahir']."</td>
 							<td>".$data['hp']."</td>
 							<td>".$data['email']."</td>
