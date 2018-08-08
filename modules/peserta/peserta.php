@@ -6,19 +6,30 @@
 	switch ($act) {
 		case 'view':
 			if (isset($_GET['idlokasi'])) {
-				$query = mysql_query("SELECT * FROM tb_peserta WHERE id_lokasi = '$_GET[idlokasi]'") or die(mysql_error());
-				$jumlah = mysql_num_rows($query);
+				//query untuk menampilkan nama lokasi
+				$query = mysql_query("SELECT * FROM tb_lokasi 
+								WHERE id_lok = '$_GET[idlokasi]'") or die(mysql_error());
+				$lokasi = mysql_fetch_assoc($query);
 
-				echo "<h1>Jumlah Peserta : ".$jumlah." Orang</h1>";
+				
+				//Query untuk menampilkan data peserta
+				$query2 = mysql_query("SELECT * FROM tb_peserta 
+								WHERE id_lokasi = '$_GET[idlokasi]'") or die(mysql_error());
+
+				$jumlah = mysql_num_rows($query2);
+
+				echo "<h1>Jumlah Peserta Dari <u style=\"color:#FF851B;\">".$lokasi['tuk']."</u> : ".$jumlah." Orang</h1>";
 
 				echo"<ul>";
-					while ($b = mysql_fetch_assoc($query)) {
+					while ($b = mysql_fetch_assoc($query2)) {
 						echo"<li>".$b['nama']."</li>";
 					}
 					
 				echo"</ul>";
 
-
+				echo"<p align='center'>
+					Kembali ke halaman depan : <a href=\"javascript:void(0);\" onclick=\"window.history.back()\" class='link'>Kembali</a>
+				</p>";
 			} else {
 				echo"<script>
 					alert('Data peserta tidak ditemukan...');
@@ -82,7 +93,7 @@
 							<select name='lokasi'>";
 							$query=mysql_query("SELECT * FROM tb_lokasi");
 							while($ab=mysql_fetch_assoc($query)) {
-								if ($ab['id_lok'] == @$a['lokasi']) {
+								if ($ab['id_lok'] == @$a['id_lokasi']) {
 									echo "<option value='".$ab['id_lok']."' selected>".$ab['tuk']."</<option>";
 								} else {
 									echo "<option value='".$ab['id_lok']."'>".$ab['tuk']."</<option>";
