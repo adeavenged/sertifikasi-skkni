@@ -60,7 +60,7 @@
 							<select name='lokasi'>";
 							$query=mysql_query("SELECT * FROM tb_lokasi");
 							while($ab=mysql_fetch_assoc($query)) {
-								if ($ab['id_lok'] == $a['lokasi']) {
+								if ($ab['id_lok'] == @$a['lokasi']) {
 									echo "<option value='".$ab['id_lok']."' selected>".$ab['tuk']."</<option>";
 								} else {
 									echo "<option value='".$ab['id_lok']."'>".$ab['tuk']."</<option>";
@@ -77,8 +77,8 @@
 						<td>
 							<select name='skema'>";
 							$query2=mysql_query("SELECT * FROM tb_skema");
-							while($b=mysql_fetch_assoc($query2)) {
-								if ($b['id_skema'] == $a['id_skema']) {
+							while($b = mysql_fetch_assoc($query2)) {
+								if ($b['id_skema'] == @$a['id_skema']) {
 									echo "<option value='".$b['id_skema']."' selected>".$b['nama_skema']."</<option>";
 								} else {
 									echo "<option value='".$b['id_skema']."'>".$b['nama_skema']."</<option>";
